@@ -13,7 +13,7 @@ phases:
     commands:
       - echo Logging in to ECR
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin 238991998648.dkr.ecr.$AWS_REGION.amazonaws.com
-      - REPOSITORY_URI=238991998648.dkr.ecr.ap-south-1.amazonaws.com/codepipeline
+      - REPOSITORY_URI=113461832962.dkr.ecr.ap-south-1.amazonaws.com/alikha-codebuild
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
 
   build:
