@@ -7,14 +7,18 @@ env:
     HELM_RELEASE: "myapp"
 
 phases:
+  install:
+    commands:
+      - "echo Installing Helm..."
+      - "curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash"
+      - "helm version --short"
+
   pre_build:
     commands:
       - "echo Logging in to Amazon ECR..."
       - "aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin 113461832962.dkr.ecr.$AWS_REGION.amazonaws.com"
       - "REPOSITORY_URI=113461832962.dkr.ecr.$AWS_REGION.amazonaws.com/alikha-codebuild"
       - "IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)"
-      - "echo Repository URI: $REPOSITORY_URI"
-      - "echo Image Tag: $IMAGE_TAG"
 
   build:
     commands:
