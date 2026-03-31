@@ -29,9 +29,7 @@ phases:
       - echo Updating kubeconfig for EKS cluster...
       - aws eks update-kubeconfig --name $CLUSTER_NAME --region $AWS_REGION
       - echo Deploying application to EKS using Helm...
-      - helm upgrade --install $HELM_RELEASE ./helm/myapp \
-          --set image.repository=$REPOSITORY_URI \
-          --set image.tag=$IMAGE_TAG
+      - helm upgrade --install $HELM_RELEASE ./helm/myapp --set image.repository=$REPOSITORY_URI --set image.tag=$IMAGE_TAG
       - echo Deployment complete!
 
 artifacts:
