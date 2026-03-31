@@ -2,9 +2,9 @@ version: 0.2
 
 env:
   variables:
-    AWS_REGION: ap-south-1
-    CLUSTER_NAME: my-cluster        # Replace with your actual EKS cluster name
-    HELM_RELEASE: myapp
+    AWS_REGION: "ap-south-1"
+    CLUSTER_NAME: "my-cluster"
+    HELM_RELEASE: "myapp"
 
 phases:
   pre_build:
