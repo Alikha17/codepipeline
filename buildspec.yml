@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     AWS_REGION: ap-south-1
-    CLUSTER_NAME: demo-cluster        # <-- updated to your actual cluster
+    CLUSTER_NAME: my-cluster        # <-- updated to your actual cluster
     HELM_RELEASE: myapp
 
 phases:
